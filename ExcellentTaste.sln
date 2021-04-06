@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31112.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcellentTaste", "ExcellentTaste\ExcellentTaste.csproj", "{14627701-D37A-4DE4-B0F9-01EF1304B4B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcellentTaste", "ExcellentTaste\ExcellentTaste.csproj", "{14627701-D37A-4DE4-B0F9-01EF1304B4B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcellentTaste.Domain", "ExcellentTaste.Domain\ExcellentTaste.Domain.csproj", "{645CD3A5-9444-4699-B9A5-8DA785B73E2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{14627701-D37A-4DE4-B0F9-01EF1304B4B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{14627701-D37A-4DE4-B0F9-01EF1304B4B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{14627701-D37A-4DE4-B0F9-01EF1304B4B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{645CD3A5-9444-4699-B9A5-8DA785B73E2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{645CD3A5-9444-4699-B9A5-8DA785B73E2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{645CD3A5-9444-4699-B9A5-8DA785B73E2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{645CD3A5-9444-4699-B9A5-8DA785B73E2B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
