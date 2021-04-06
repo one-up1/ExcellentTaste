@@ -15,7 +15,7 @@ namespace ExcellentTaste.Domain
         [MaxLength(255)]
         public string Description { get; set; }
         [Required]
-        [RegularExpression(@"^[0-9]{1,16}([,.][0-9]{0,2})?$", ErrorMessage = errorMessageWrongPriceNotation)]
+        [RegularExpression(@"^[0-9]{1,8}([,.][0-9]{0,2})?$", ErrorMessage = errorMessageWrongPriceNotation)]
         public float Price { get; set; }
         [Required]
         public int BtwTypeId { get; set; }

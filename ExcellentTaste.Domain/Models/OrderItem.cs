@@ -15,5 +15,7 @@ namespace ExcellentTaste.Domain
         public int Amount { get; set; }
         [Required]
         public bool Prepared { get; set; }
+        [Required]
+        public bool Delivered { get; set; }
     }
 }

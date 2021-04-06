@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ExcellentTaste.Domain.Services
 {
-    interface ICatagoryData
+    public interface ICatagoryData
     {
         IEnumerable<Catagory> GetAll();
         Catagory Get(int catagoryId);

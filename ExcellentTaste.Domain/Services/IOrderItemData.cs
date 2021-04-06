@@ -8,8 +8,8 @@ namespace ExcellentTaste.Domain.Services
     {
         IEnumerable<OrderItem> Get(int orderId);
         OrderItem Get(int orderId, int itemId);
-        void Edit(Order editedOrderItem);
-        void Create(Order newOrderItem);
-        void Delete(Order orderItemToRemove);
+        void Edit(OrderItem editedOrderItem);
+        void Create(OrderItem newOrderItem);
+        void Delete(OrderItem orderItemToRemove);
     }
 }

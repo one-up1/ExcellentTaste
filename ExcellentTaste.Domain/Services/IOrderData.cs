@@ -4,9 +4,11 @@ using System.Text;
 
 namespace ExcellentTaste.Domain.Services
 {
-    interface IOrderData
+    public interface IOrderData
     {
         IEnumerable<Order> GetAll();
+        IEnumerable<Order> GetAllButOld();
+        IEnumerable<Order> GetAllToday();
         Order Get(int orderId);
         void Create(Order newOrder);
         void Edit(Order editedOrder);

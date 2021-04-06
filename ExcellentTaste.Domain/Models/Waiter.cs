@@ -11,6 +11,6 @@ namespace ExcellentTaste.Domain
         public int Id { get; set; }
         [Required]
         [MaxLength(50)]
-        public int Name { get; set; }
+        public string Name { get; set; }
     }
 }

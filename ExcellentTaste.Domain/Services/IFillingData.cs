@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ExcellentTaste.Domain.Services
 {
-    interface IFillingData
+    public interface IFillingData
     {
         IEnumerable<Filling> GetAll();
         Filling Get(int fillingId);

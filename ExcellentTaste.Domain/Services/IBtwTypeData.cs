@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ExcellentTaste.Domain.Services
 {
-    interface IBtwTypeData
+    public interface IBtwTypeData
     {
         IEnumerable<BtwType> GetAll();
         BtwType Get(int btwTypeId);
