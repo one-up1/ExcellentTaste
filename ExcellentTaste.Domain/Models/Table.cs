@@ -7,6 +7,7 @@ namespace ExcellentTaste.Domain
 {
     public class Table
     {
+        [Key]
         [Required]
         public int Id { get; set; }
     }

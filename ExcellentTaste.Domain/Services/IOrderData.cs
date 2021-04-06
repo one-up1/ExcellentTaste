@@ -8,7 +8,7 @@ namespace ExcellentTaste.Domain.Services
     {
         IEnumerable<Order> GetAll();
         IEnumerable<Order> GetAllButOld();
-        IEnumerable<Order> GetAllToday();
+        IEnumerable<Order> GetAllOnDay(int year, int month, int day);
         Order Get(int orderId);
         void Create(Order newOrder);
         void Edit(Order editedOrder);

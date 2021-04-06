@@ -47,10 +47,9 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
             return db.Orders.Where(o => o.StartTime.Year >= currentDatetime.Year && o.StartTime.Month >= currentDatetime.Month && o.StartTime.Day >= currentDatetime.Day);
         }
 
-        public IEnumerable<Order> GetAllToday()
+        public IEnumerable<Order> GetAllOnDay(int year, int month, int day)
         {
-            DateTime currentDatetime = DateTime.Now;
-            return db.Orders.Where(o => o.StartTime.Year == currentDatetime.Year && o.StartTime.Month == currentDatetime.Month && o.StartTime.Day == currentDatetime.Day);
+            return db.Orders.Where(o => o.StartTime.Year == year && o.StartTime.Month == month && o.StartTime.Day == day);
         }
     }
 }

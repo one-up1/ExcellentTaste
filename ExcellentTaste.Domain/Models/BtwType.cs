@@ -7,6 +7,7 @@ namespace ExcellentTaste.Domain
 {
     public class BtwType
     {
+        [Key]
         [Required]
         public int Id { get; set; }
         [Required]

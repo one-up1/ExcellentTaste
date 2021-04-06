@@ -18,9 +18,9 @@ namespace ExcellentTaste.Infrastructure.InMemory.Services
         {
             items = new List<Item>()
             {
-                new Item(){ Id = 1, Description = "goop", Price = 5.50F, BtwTypeId = 1, CatagoryId = 1, Available = true },
-                new Item(){ Id = 2, Description = "goop juice", Price = 1.50F, BtwTypeId = 2, CatagoryId = 2, Available = true},
-                new Item(){ Id = 3, Description = "old goop", Price = 5F, BtwTypeId = 1, CatagoryId = 1, Available = false}
+                new Item(){ Id = 1, Name = "goop", Description = "made of goop", Price = 5.50F, BtwTypeId = 1, CatagoryId = 1, Available = true },
+                new Item(){ Id = 2, Name = "goop juice", Description = "also made of goop", Price = 1.50F, BtwTypeId = 2, CatagoryId = 2, Available = true},
+                new Item(){ Id = 3, Name = "old goop", Description = "made of old goop", Price = 5F, BtwTypeId = 1, CatagoryId = 1, Available = false}
             };
         }
 
