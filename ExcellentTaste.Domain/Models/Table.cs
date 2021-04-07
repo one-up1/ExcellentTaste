@@ -10,5 +10,7 @@ namespace ExcellentTaste.Domain
         [Key]
         [Required]
         public int Id { get; set; }
+        [Required]
+        public int Number { get; set; }
     }
 }
