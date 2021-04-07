@@ -15,9 +15,9 @@ namespace ExcellentTaste.Infrastructure.InMemory.Services
         {
             orderItems = new List<OrderItem>()
             {
-                new OrderItem() { OrderId = 1, ItemId = 1, Amount = 1, Prepared = false, Delivered = false },
-                new OrderItem() { OrderId = 1, ItemId = 2, Amount = 1, Prepared = true, Delivered = false },
-                new OrderItem() { OrderId = 2, ItemId = 1, Amount = 2, Prepared = true, Delivered = true }
+                new OrderItem() { OrderId = 1, ItemId = 1, Amount = 1, Price = 5.50F, Prepared = false, Delivered = false },
+                new OrderItem() { OrderId = 1, ItemId = 2, Amount = 1, Price = 1.50F, Prepared = true, Delivered = false },
+                new OrderItem() { OrderId = 2, ItemId = 1, Amount = 2, Price = 5.50F, Prepared = true, Delivered = true }
             };
         }
 

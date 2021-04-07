@@ -13,7 +13,11 @@ namespace ExcellentTaste.Infrastructure.InMemory.Services
 
         public InMemoryBtwTypeData()
         {
-            btwTypes = new List<BtwType>() { new BtwType() { Id = 1, Percentage = 21 }, new BtwType() { Id = 2, Percentage = 9 } };
+            btwTypes = new List<BtwType>()
+            {
+                new BtwType() { Id = 1, Name = "hoog", Percentage = 21 },
+                new BtwType() { Id = 2, Name = "laag", Percentage = 9 }
+            };
         }
 
         public BtwType Get(int btwTypeId)

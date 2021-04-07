@@ -22,6 +22,9 @@ namespace ExcellentTaste.Domain
         [Required]
         [RegularExpression(@"^[0-9]{1,8}([,.][0-9]{0,2})?$", ErrorMessage = errorMessageWrongPriceNotation)]
         public float Price { get; set; }
+        [ForeignKey("Station")]
+        [Required]
+        public int StationId { get; set; }
         [ForeignKey("BtwType")]
         [Required]
         public int BtwTypeId { get; set; }
