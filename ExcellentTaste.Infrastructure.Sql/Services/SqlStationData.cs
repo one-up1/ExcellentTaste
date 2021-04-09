@@ -10,7 +10,7 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 {
     public class SqlStationData : IStationData
     {
-        private StationDbContext db;
+        private readonly StationDbContext db;
 
         public SqlStationData(StationDbContext db)
         {
@@ -19,12 +19,12 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 
         public Station Get(int stationId)
         {
-            return db.Stations.FirstOrDefault(s => s.Id == stationId);
+            return db.Stations.Find(stationId);
         }
 
         public IEnumerable<Station> GetAll()
         {
-            return db.Stations
+            return db.Stations;
         }
     }
 }

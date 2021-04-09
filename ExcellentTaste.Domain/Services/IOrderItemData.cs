@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using ExcellentTaste.Domain.Models;
 
 namespace ExcellentTaste.Domain.Services
 {
@@ -10,6 +11,6 @@ namespace ExcellentTaste.Domain.Services
         OrderItem Get(int orderId, int itemId);
         void Edit(OrderItem editedOrderItem);
         void Create(OrderItem newOrderItem);
-        void Delete(OrderItem orderItemToRemove);
+        void Delete(int orderItemToRemoveOrderId, int orderItemToRemoveItemId);
     }
 }

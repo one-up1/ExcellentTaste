@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExcellentTaste.Domain;
+using ExcellentTaste.Domain.Models;
 using ExcellentTaste.Domain.Services;
 using ExcellentTaste.Infrastructure.Sql.DbContexts;
 
@@ -19,7 +19,7 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 
         public Waiter Get(int waiterId)
         {
-            return db.Waiters.FirstOrDefault(w => w.Id == waiterId);
+            return db.Waiters.Find(waiterId);
         }
 
         public IEnumerable<Waiter> GetAll()

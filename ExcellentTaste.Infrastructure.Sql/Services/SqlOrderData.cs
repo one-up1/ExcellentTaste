@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExcellentTaste.Domain;
+using ExcellentTaste.Domain.Models;
 using ExcellentTaste.Domain.Services;
 using ExcellentTaste.Infrastructure.Sql.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExcellentTaste.Infrastructure.Sql.Services
 {
-    class SqlOrderData : IOrderData
+    public class SqlOrderData : IOrderData
     {
         private readonly OrderDbContext db;
 
@@ -19,21 +20,21 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 
         public void Create(Order newOrder)
         {
-            var entry = db.Entry(newOrder);
-            entry.State = System.Data.Entity.EntityState.Added;
+            var entry = db.Add(newOrder);
+            entry.State = EntityState.Added;
             db.SaveChanges();
         }
 
         public void Edit(Order editedOrder)
         {
-            var entry = db.Entry(editedOrder);
-            entry.State = System.Data.Entity.EntityState.Modified;
+            var entry = db.Attach(editedOrder);
+            entry.State = EntityState.Modified;
             db.SaveChanges();
         }
 
         public Order Get(int orderId)
         {
-            return db.Orders.FirstOrDefault(o => o.Id == orderId);
+            return db.Orders.Find(orderId);
         }
 
         public IEnumerable<Order> GetAll()

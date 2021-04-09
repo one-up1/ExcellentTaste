@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExcellentTaste.Domain;
+using ExcellentTaste.Domain.Models;
 using ExcellentTaste.Domain.Services;
 
 namespace ExcellentTaste.Infrastructure.InMemory.Services
 {
     public class InMemoryOrderData : IOrderData
     {
-        private List<Order> orders;
+        private readonly List<Order> orders;
 
         public InMemoryOrderData()
         {

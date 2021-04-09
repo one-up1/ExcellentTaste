@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExcellentTaste.Domain;
+using ExcellentTaste.Domain.Models;
 using ExcellentTaste.Domain.Services;
 
 namespace ExcellentTaste.Infrastructure.InMemory.Services
@@ -12,7 +12,7 @@ namespace ExcellentTaste.Infrastructure.InMemory.Services
         private const bool availableOfDeleted = false;
         private const bool availableOfAvailable = true;
 
-        private List<Item> items;
+        private readonly List<Item> items;
 
         public InMemoryItemData()
         {
@@ -29,11 +29,11 @@ namespace ExcellentTaste.Infrastructure.InMemory.Services
             items.Add(newItem);
         }
 
-        public void Delete(Item itemToDelete)
+        public void Delete(int itemToDeleteId)
         {
             for(int i = 0; i < items.Count; i++)
             {
-                if(items[i].Id == itemToDelete.Id)
+                if(items[i].Id == itemToDeleteId)
                 {
                     items[i].Available = availableOfDeleted;
                     return;

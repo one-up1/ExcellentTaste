@@ -4,4 +4,16 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.7" />
+    <PackageReference Include="UmbracoForms.Core" Version="8.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExcellentTaste.Domain\ExcellentTaste.Domain.csproj" />
+    <ProjectReference Include="..\ExcellentTaste.Infrastructure.InMemory\ExcellentTaste.Infrastructure.InMemory.csproj" />
+    <ProjectReference Include="..\ExcellentTaste.Infrastructure.Sql\ExcellentTaste.Infrastructure.Sql.csproj" />
+  </ItemGroup>
+
 </Project>

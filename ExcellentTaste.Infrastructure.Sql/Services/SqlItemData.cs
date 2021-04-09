@@ -2,13 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExcellentTaste.Domain;
+using ExcellentTaste.Domain.Models;
 using ExcellentTaste.Domain.Services;
 using ExcellentTaste.Infrastructure.Sql.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExcellentTaste.Infrastructure.Sql.Services
 {
-    class SqlItemData : IItemData
+    public class SqlItemData : IItemData
     {
         private const bool availabilityOfDeleted = false;
         private const bool availabilityOfAvailable = true;
@@ -22,29 +23,28 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 
         public void Create(Item newItem)
         {
-            var entry = db.Entry(newItem);
-            entry.State = System.Data.Entity.EntityState.Added;
+            var entry = db.Items.Add(newItem);
+            entry.State = EntityState.Added;
             db.SaveChanges();
         }
 
-        public void Delete(Item itemToDelete)
+        public void Delete(int itemToDeleteId)
         {
-            itemToDelete.Available = availabilityOfDeleted;
-            var entry = db.Entry(itemToDelete);
-            entry.State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
+            Item toDelete = Get(itemToDeleteId);
+            toDelete.Available = availabilityOfDeleted;
+            Edit(toDelete);
         }
 
         public void Edit(Item editedItem)
         {
-            var entry = db.Entry(editedItem);
-            entry.State = System.Data.Entity.EntityState.Modified;
+            var entry = db.Attach(editedItem);
+            entry.State = EntityState.Modified;
             db.SaveChanges();
         }
 
         public Item Get(int itemId)
         {
-            return db.Items.FirstOrDefault(i => i.Id == itemId);
+            return db.Items.Find(itemId);
         }
 
         public IEnumerable<Item> GetAll()

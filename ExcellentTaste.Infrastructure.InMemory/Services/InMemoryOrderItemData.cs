@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExcellentTaste.Domain;
+using ExcellentTaste.Domain.Models;
 using ExcellentTaste.Domain.Services;
 
 namespace ExcellentTaste.Infrastructure.InMemory.Services
 {
     public class InMemoryOrderItemData : IOrderItemData
     {
-        private List<OrderItem> orderItems;
+        private readonly List<OrderItem> orderItems;
 
         public InMemoryOrderItemData()
         {
@@ -26,9 +26,13 @@ namespace ExcellentTaste.Infrastructure.InMemory.Services
             orderItems.Add(newOrderItem);
         }
 
-        public void Delete(OrderItem orderItemToRemove)
+        public void Delete(int orderItemToRemoveOrderId, int orderItemToRemoveItemId)
         {
-            orderItems.Remove(orderItemToRemove);
+            OrderItem toDelete = Get(orderItemToRemoveOrderId, orderItemToRemoveItemId);
+            if(toDelete != null)
+            {
+                orderItems.Remove(toDelete);
+            }
         }
 
         public void Edit(OrderItem editedOrderItem)

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExcellentTaste.Domain;
+using ExcellentTaste.Domain.Models;
 using ExcellentTaste.Domain.Services;
 
 namespace ExcellentTaste.Infrastructure.InMemory.Services
 {
     public class InMemoryWaiterData : IWaiterData
     {
-        private List<Waiter> waiters;
+        private readonly List<Waiter> waiters;
 
         public InMemoryWaiterData()
         {

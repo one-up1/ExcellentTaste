@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ExcellentTaste.Domain;
+using ExcellentTaste.Domain.Models;
 using ExcellentTaste.Domain.Services;
 using ExcellentTaste.Infrastructure.Sql.DbContexts;
 
 namespace ExcellentTaste.Infrastructure.Sql.Services
 {
-    class SqlCatagoryData : ICatagoryData
+    public class SqlCatagoryData : ICatagoryData
     {
         private readonly CatagoryDbContext db;
 
@@ -19,7 +19,7 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 
         public Catagory Get(int catagoryId)
         {
-            return db.Catagories.FirstOrDefault(c => c.Id == catagoryId);
+            return db.Catagories.Find(catagoryId);
         }
 
         public IEnumerable<Catagory> GetAll()

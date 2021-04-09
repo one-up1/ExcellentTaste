@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using ExcellentTaste.Domain;
+using ExcellentTaste.Domain.Models;
 using ExcellentTaste.Domain.Services;
 using ExcellentTaste.Infrastructure.Sql.DbContexts;
+using Microsoft.EntityFrameworkCore;
 
 namespace ExcellentTaste.Infrastructure.Sql.Services
 {
@@ -19,24 +21,23 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 
         public void Create(OrderItem newOrderItem)
         {
-            //db.OrderItems.Add(newOrderItem);
-            var entry = db.Entry(newOrderItem);
-            entry.State = System.Data.Entity.EntityState.Added;
+            var entry = db.Add(newOrderItem);
+            entry.State = EntityState.Added;
             db.SaveChanges();
         }
 
-        public void Delete(OrderItem orderItemToRemove)
+        public void Delete(int orderItemToRemoveOrderId, int orderItemToRemoveItemId)
         {
-            //db.OrderItems.Remove(orderItemToRemove);
-            var entry = db.Entry(orderItemToRemove);
-            entry.State = System.Data.Entity.EntityState.Deleted;
+            OrderItem toDelete = Get(orderItemToRemoveOrderId, orderItemToRemoveItemId);
+            var entry = db.Remove(toDelete);
+            entry.State = EntityState.Deleted;
             db.SaveChanges();
         }
 
         public void Edit(OrderItem editedOrderItem)
         {
-            var entry = db.Entry(editedOrderItem);
-            entry.State = System.Data.Entity.EntityState.Modified;
+            var entry = db.Attach(editedOrderItem);
+            entry.State = EntityState.Modified;
             db.SaveChanges();
         }
 
@@ -47,7 +48,8 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 
         public OrderItem Get(int orderId, int itemId)
         {
-            return db.OrderItems.FirstOrDefault(o => o.OrderId == orderId && o.ItemId == itemId);
+            return db.OrderItems.Find(new int[] { orderId, itemId });
+            //return db.OrderItems.FirstOrDefault(o => o.OrderId == orderId && o.ItemId == itemId);
         }
     }
 }

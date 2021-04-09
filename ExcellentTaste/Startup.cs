@@ -1,6 +1,11 @@
+using ExcellentTaste.Domain.Services;
+using ExcellentTaste.Infrastructure.InMemory.Services;
+using ExcellentTaste.Infrastructure.Sql.DbContexts;
+using ExcellentTaste.Infrastructure.Sql.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -13,6 +18,13 @@ namespace ExcellentTaste
 {
     public class Startup
     {
+        private enum InfrastructureOrigin
+        {
+            InMemory,
+            Sql
+        }
+        private const InfrastructureOrigin infrastructureOrigin = InfrastructureOrigin.InMemory;
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -23,6 +35,68 @@ namespace ExcellentTaste
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            if(infrastructureOrigin == InfrastructureOrigin.InMemory)
+            {
+                services.AddSingleton<IBtwTypeData, InMemoryBtwTypeData>();
+                services.AddSingleton<ICatagoryData, InMemoryCatagorydata>();
+                services.AddSingleton<IFillingData, InMemoryFillingData>();
+                services.AddSingleton<IItemData, InMemoryItemData>();
+                services.AddSingleton<IOrderData, InMemoryOrderData>();
+                services.AddSingleton<IOrderItemData, InMemoryOrderItemData>();
+                services.AddSingleton<IStationData, InMemoryStationData>();
+                services.AddSingleton<ITableData, InMemoryTableData>();
+                services.AddSingleton<IWaiterData, InMemoryWaiterData>();
+            }
+            else if(infrastructureOrigin == InfrastructureOrigin.Sql)
+            {
+                services.AddDbContextPool<BtwTypeDbContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
+                });
+                services.AddDbContextPool<CatagoryDbContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
+                });
+                services.AddDbContextPool<FillingDbContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
+                });
+                services.AddDbContextPool<ItemDbContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
+                });
+                services.AddDbContextPool<OrderDbContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
+                });
+                services.AddDbContextPool<OrderItemDbContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
+                });
+                services.AddDbContextPool<StationDbContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
+                });
+                services.AddDbContextPool<TableDbContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
+                });
+                services.AddDbContextPool<WaiterDbContext>(options =>
+                {
+                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
+                });
+
+                services.AddScoped<IBtwTypeData, SqlBtwTypeData>();
+                services.AddScoped<ICatagoryData, SqlCatagoryData>();
+                services.AddScoped<IFillingData, SqlFillingData>();
+                services.AddScoped<IItemData, SqlItemData>();
+                services.AddScoped<IOrderData, SqlOrderData>();
+                services.AddScoped<IOrderItemData, SqlOrderItemData>();
+                services.AddScoped<IStationData, SqlStationData>();
+                services.AddScoped<ITableData, SqlTableData>();
+                services.AddScoped<IWaiterData, SqlWaiterData>();
+            }
+
             services.AddRazorPages();
         }
 

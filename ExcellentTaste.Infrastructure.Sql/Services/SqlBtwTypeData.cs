@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using ExcellentTaste.Domain.Models;
 using ExcellentTaste.Domain.Services;
@@ -8,23 +7,23 @@ using ExcellentTaste.Infrastructure.Sql.DbContexts;
 
 namespace ExcellentTaste.Infrastructure.Sql.Services
 {
-    public class SqlFillingData : IFillingData
+    public class SqlBtwTypeData : IBtwTypeData
     {
-        private readonly FillingDbContext db;
-        
-        public SqlFillingData(FillingDbContext db)
+        private readonly BtwTypeDbContext db;
+
+        public SqlBtwTypeData(BtwTypeDbContext db)
         {
             this.db = db;
         }
 
-        public Filling Get(int fillingId)
+        public BtwType Get(int btwTypeId)
         {
-            return db.Fillings.Find(fillingId);
+            return db.BtwTypes.Find(btwTypeId);
         }
 
-        public IEnumerable<Filling> GetAll()
+        public IEnumerable<BtwType> GetAll()
         {
-            return db.Fillings;
+            return db.BtwTypes;
         }
     }
 }

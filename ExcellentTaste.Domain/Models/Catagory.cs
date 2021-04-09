@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace ExcellentTaste.Domain
+namespace ExcellentTaste.Domain.Models
 {
     public class Catagory
     {
