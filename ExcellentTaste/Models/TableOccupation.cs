@@ -7,19 +7,19 @@ namespace ExcellentTaste.Models
     //used in model TableOccupations
     public class TableOccupation
     {
-        public int OrderId { get; set; }
+        public int ReservationId { get; set; }
         public int TableId { get; set; }
         public int TableNumber { get; set; }
         public DateTime StartTime { get; set; }
         public int Duration { get; set; }
 
-        public TableOccupation(IFillingData fillingData, ITableData tableData, Order order)
+        public TableOccupation(IFillingData fillingData, ITableData tableData, Reservation reservation)
         {
-            OrderId = order.Id;
-            TableId = order.TableId;
+            ReservationId = reservation.Id;
+            TableId = reservation.TableId;
             TableNumber = tableData.Get(TableId).Number;
-            StartTime = order.StartTime;
-            Filling filling = fillingData.Get(order.FillingId);
+            StartTime = reservation.StartTime;
+            Filling filling = fillingData.Get(reservation.FillingId);
             Duration = filling.DurationMinutes + filling.BufferMinutes;
         }
     }

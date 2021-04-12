@@ -10,19 +10,19 @@ namespace ExcellentTaste.Models
     //used for waiter picking up prepared items, kitchen/bar preparing items
     public class ItemsPerTable
     {
-        public IEnumerable<ItemsOfOrder> Items { get; set; }
+        public IEnumerable<ItemsOfReservation> Items { get; set; }
 
-        public ItemsPerTable(IOrderData orderData, IOrderItemData orderItemData, ITableData tableData, IItemData itemData, bool prepared, bool delivered, int? stationId = null)
+        public ItemsPerTable(IReservationData reservationData, IReservationItemData reservationItemData, ITableData tableData, IItemData itemData, bool prepared, bool delivered, int? stationId = null)
         {
             DateTime today = DateTime.Now;
-            IEnumerable<Order> orders = orderData.GetAllOnDay(today.Year, today.Month, today.Day);
-            List<ItemsOfOrder> newItems = new List<ItemsOfOrder>();
-            foreach(Order order in orders)
+            IEnumerable<Reservation> reservations = reservationData.GetAllOnDay(today.Year, today.Month, today.Day);
+            List<ItemsOfReservation> newItems = new List<ItemsOfReservation>();
+            foreach(Reservation reservation in reservations)
             {
-                ItemsOfOrder newItemsOfOrder = new ItemsOfOrder(orderItemData, tableData, itemData, order, prepared, delivered, stationId);
-                if (newItemsOfOrder.Items.Count() > 0)
+                ItemsOfReservation newItemsOfReservation = new ItemsOfReservation(reservationItemData, tableData, itemData, reservation, prepared, delivered, stationId);
+                if (newItemsOfReservation.Items.Count() > 0)
                 {
-                    newItems.Add(newItemsOfOrder);
+                    newItems.Add(newItemsOfReservation);
                 }
             }
             Items = newItems;

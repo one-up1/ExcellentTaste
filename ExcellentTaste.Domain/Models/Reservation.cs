@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExcellentTaste.Domain.Models
 {
-    public class Order
+    public class Reservation
     {
         [Key]
         [Required]

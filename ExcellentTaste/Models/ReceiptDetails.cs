@@ -14,33 +14,25 @@ namespace ExcellentTaste.Models
         public string Waitername { get; set; }
         public DateTime StartTime { get; set; }
         public int TableNumber { get; set; }
-        public IEnumerable<OrderItemDetail> OrderItems { get; set; }
+        public IEnumerable<ReservationItemDetail> reservationItems { get; set; }
         public IEnumerable<BtwType> BtwTypes { get; set; }
 
-        public ReceiptDetails(IBtwTypeData btwTypeData, IItemData itemData, IOrderData orderData, IOrderItemData orderItemData, ITableData tableData, IWaiterData waiterData, int orderId)
+        public ReceiptDetails(IBtwTypeData btwTypeData, IItemData itemData, IReservationData reservationData, IReservationItemData reservationItemData, ITableData tableData, IWaiterData waiterData, int reservationId)
         {
-            /*
-            IBtwTypeData btwTypeData = DependencyResolver.Current.GetService<IBtwTypeData>();
-            IOrderData orderData = DependencyResolver.Current.GetService<IOrderData>();
-            IOrderItemData orderItemData = DependencyResolver.Current.GetService<IOrderItemData>();
-            ITableData tableData = DependencyResolver.Current.GetService<ITableData>();
-            IWaiterData waiterData = DependencyResolver.Current.GetService<IWaiterData>();
-            */
+            Reservation reservation = reservationData.Get(reservationId);
+            Waitername = waiterData.Get(reservation.WaitorId).Name;
 
-            Order order = orderData.Get(orderId);
-            Waitername = waiterData.Get(order.WaitorId).Name;
+            StartTime = reservation.StartTime;
 
-            StartTime = order.StartTime;
+            TableNumber = tableData.Get(reservation.TableId).Number;
 
-            TableNumber = tableData.Get(order.TableId).Number;
-
-            List<OrderItemDetail> newOrderItems = new List<OrderItemDetail>();
-            IEnumerable<OrderItem> orderItems = orderItemData.Get(orderId);
-            foreach(OrderItem orderItem in orderItems)
+            List<ReservationItemDetail> newReservationItems = new List<ReservationItemDetail>();
+            IEnumerable<ReservationItem> reservationItems = reservationItemData.Get(reservationId);
+            foreach(ReservationItem reservationItem in reservationItems)
             {
-                newOrderItems.Add(new OrderItemDetail(itemData, orderItemData, orderItem.OrderId, orderItem.ItemId));
+                newReservationItems.Add(new ReservationItemDetail(itemData, reservationItemData, reservationItem.ReservationId, reservationItem.ItemId));
             }
-            OrderItems = newOrderItems;
+            this.reservationItems = newReservationItems;
 
             BtwTypes = btwTypeData.GetAll();
         }

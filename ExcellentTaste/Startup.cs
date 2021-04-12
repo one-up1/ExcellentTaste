@@ -41,8 +41,8 @@ namespace ExcellentTaste
                 services.AddSingleton<ICatagoryData, InMemoryCatagorydata>();
                 services.AddSingleton<IFillingData, InMemoryFillingData>();
                 services.AddSingleton<IItemData, InMemoryItemData>();
-                services.AddSingleton<IOrderData, InMemoryOrderData>();
-                services.AddSingleton<IOrderItemData, InMemoryOrderItemData>();
+                services.AddSingleton<IReservationData, InMemoryReservationData>();
+                services.AddSingleton<IReservationItemData, InMemoryReservationItemData>();
                 services.AddSingleton<IStationData, InMemoryStationData>();
                 services.AddSingleton<ITableData, InMemoryTableData>();
                 services.AddSingleton<IWaiterData, InMemoryWaiterData>();
@@ -65,11 +65,11 @@ namespace ExcellentTaste
                 {
                     options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
                 });
-                services.AddDbContextPool<OrderDbContext>(options =>
+                services.AddDbContextPool<ReservationDbContext>(options =>
                 {
                     options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
                 });
-                services.AddDbContextPool<OrderItemDbContext>(options =>
+                services.AddDbContextPool<ReservationItemDbContext>(options =>
                 {
                     options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
                 });
@@ -90,8 +90,8 @@ namespace ExcellentTaste
                 services.AddScoped<ICatagoryData, SqlCatagoryData>();
                 services.AddScoped<IFillingData, SqlFillingData>();
                 services.AddScoped<IItemData, SqlItemData>();
-                services.AddScoped<IOrderData, SqlOrderData>();
-                services.AddScoped<IOrderItemData, SqlOrderItemData>();
+                services.AddScoped<IReservationData, SqlReservationData>();
+                services.AddScoped<IReservationItemData, SqlReservationItemData>();
                 services.AddScoped<IStationData, SqlStationData>();
                 services.AddScoped<ITableData, SqlTableData>();
                 services.AddScoped<IWaiterData, SqlWaiterData>();

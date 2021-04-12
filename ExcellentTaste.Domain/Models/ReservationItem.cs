@@ -6,13 +6,13 @@ using System.Text;
 
 namespace ExcellentTaste.Domain.Models
 {
-    public class OrderItem
+    public class ReservationItem
     {
         [Key]
         [Column(Order = 1)]
         [ForeignKey("Item")]
         [Required]
-        public int OrderId { get; set; }
+        public int ReservationId { get; set; }
         [Key]
         [Column(Order = 2)]
         [ForeignKey("Item")]

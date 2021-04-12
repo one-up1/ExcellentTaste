@@ -7,17 +7,17 @@ using ExcellentTaste.Domain.Services;
 
 namespace ExcellentTaste.Models
 {
-    //used for waiter picking up new items in an order
-    public class OrderChangeItems
+    //used for waiter picking up new items in a reservation
+    public class ReservationChangeItems
     {
-        public int OrderId { get; set; }
-        public IEnumerable<OrderItem> OrderItems { get; set; }
+        public int ReservationId { get; set; }
+        public IEnumerable<ReservationItem> ReservationItems { get; set; }
         public IEnumerable<ItemsInCatagory> ItemsPerCatagory { get; set; }
 
-        public OrderChangeItems(ICatagoryData catagoryData, IItemData itemData, IOrderItemData orderItemData, int orderId)
+        public ReservationChangeItems(ICatagoryData catagoryData, IItemData itemData, IReservationItemData reservationItemData, int reservationId)
         {
-            OrderId = orderId;
-            OrderItems = orderItemData.Get(orderId);
+            ReservationId = reservationId;
+            ReservationItems = reservationItemData.Get(reservationId);
             IEnumerable<Catagory> catagories = catagoryData.GetAll();
             List<ItemsInCatagory> newItemsPerCatagory = new List<ItemsInCatagory>();
             foreach(Catagory catagory in catagories)

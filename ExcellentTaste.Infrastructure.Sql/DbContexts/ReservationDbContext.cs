@@ -6,9 +6,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ExcellentTaste.Infrastructure.Sql.DbContexts
 {
-    public class OrderItemDbContext : DbContext
+    public class ReservationDbContext : DbContext
     {
-        public OrderItemDbContext(DbContextOptions<OrderItemDbContext> options) : base(options) { }
-        public DbSet<OrderItem> OrderItems { get; set; }
+        public ReservationDbContext(DbContextOptions<ReservationDbContext> options) : base(options) { }
+        public DbSet<Reservation> Reservations { get; set; }
     }
 }
