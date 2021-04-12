@@ -9,7 +9,7 @@ using ExcellentTaste.Domain.Services;
 namespace ExcellentTaste.Models
 {
     //used to create the Bon
-    public class BonDetails
+    public class ReceiptDetails
     {
         public string Waitername { get; set; }
         public DateTime StartTime { get; set; }
@@ -17,7 +17,7 @@ namespace ExcellentTaste.Models
         public IEnumerable<OrderItemDetail> OrderItems { get; set; }
         public IEnumerable<BtwType> BtwTypes { get; set; }
 
-        public BonDetails(IBtwTypeData btwTypeData, IItemData itemData, IOrderData orderData, IOrderItemData orderItemData, ITableData tableData, IWaiterData waiterData, int orderId)
+        public ReceiptDetails(IBtwTypeData btwTypeData, IItemData itemData, IOrderData orderData, IOrderItemData orderItemData, ITableData tableData, IWaiterData waiterData, int orderId)
         {
             /*
             IBtwTypeData btwTypeData = DependencyResolver.Current.GetService<IBtwTypeData>();
