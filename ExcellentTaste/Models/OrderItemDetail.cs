@@ -14,11 +14,6 @@ namespace ExcellentTaste.Models
 
         public OrderItemDetail(IItemData itemData, IOrderItemData orderItemData, int orderId, int itemId)
         {
-            /*
-            IItemData itemData = DependencyResolver.Current.GetService<IItemData>();
-            IOrderItemData orderItemData = DependencyResolver.Current.GetService<IOrderItemData>();
-            */
-
             OrderItem orderItem = orderItemData.Get(orderId, itemId);
             OrderId = orderId;
             ItemId = itemId;
