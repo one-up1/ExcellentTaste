@@ -17,18 +17,6 @@ namespace ExcellentTaste.Models
 
         public ItemsOfOrder(IOrderItemData orderItemData, ITableData tableData, IItemData itemData, Order order, bool prepared, bool delivered, int? stationId = null)
         {
-            /*
-            IOrderData orderData = DependencyResolver.Current.GetService<IOrderData>();
-            IOrderItemData orderItemData = DependencyResolver.Current.GetService<IOrderItemData>();
-            ITableData tableData = DependencyResolver.Current.GetService<ITableData>();
-
-            IItemData itemData = null;
-            if(stationId != null)
-            {
-                itemData = DependencyResolver.Current.GetService<IItemData>();
-            }
-            */
-
             TableNumber = tableData.Get(order.TableId).Number;
 
             List<OrderItemDetail> newItems = new List<OrderItemDetail>();
@@ -49,7 +37,7 @@ namespace ExcellentTaste.Models
             }
             Items = newItems;
         }
-        public ItemsOfOrder(, IOrderItemData orderItemData, ITableData tableData, IItemData itemData, Order order):this(orderItemData, tableData, itemData, order, true, false)
+        public ItemsOfOrder(IOrderItemData orderItemData, ITableData tableData, IItemData itemData, Order order):this(orderItemData, tableData, itemData, order, true, false)
         {
 
         }
