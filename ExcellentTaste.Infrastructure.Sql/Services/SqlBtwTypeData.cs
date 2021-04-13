@@ -9,9 +9,9 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 {
     public class SqlBtwTypeData : IBtwTypeData
     {
-        private readonly BtwTypeDbContext db;
+        private readonly ExcellentTasteContext db;
 
-        public SqlBtwTypeData(BtwTypeDbContext db)
+        public SqlBtwTypeData(ExcellentTasteContext db)
         {
             this.db = db;
         }

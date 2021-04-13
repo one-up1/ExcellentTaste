@@ -14,9 +14,9 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
         private const bool availabilityOfDeleted = false;
         private const bool availabilityOfAvailable = true;
 
-        private readonly ItemDbContext db;
+        private readonly ExcellentTasteContext db;
 
-        public SqlItemData(ItemDbContext db)
+        public SqlItemData(ExcellentTasteContext db)
         {
             this.db = db;
         }

@@ -11,9 +11,9 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 {
     public class SqlTableData : ITableData
     {
-        private readonly TableDbContext db;
+        private readonly ExcellentTasteContext db;
 
-        public SqlTableData(TableDbContext db)
+        public SqlTableData(ExcellentTasteContext db)
         {
             this.db = db;
         }

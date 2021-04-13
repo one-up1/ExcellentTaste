@@ -10,9 +10,9 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 {
     public class SqlStationData : IStationData
     {
-        private readonly StationDbContext db;
+        private readonly ExcellentTasteContext db;
 
-        public SqlStationData(StationDbContext db)
+        public SqlStationData(ExcellentTasteContext db)
         {
             this.db = db;
         }

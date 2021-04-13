@@ -8,13 +8,13 @@ namespace ExcellentTaste.Domain.Models
 {
     public class ReservationItem
     {
-        [Key]
-        [Column(Order = 1)]
+        //[Key]
+        //[Column(Order = 1)]
         [ForeignKey("Item")]
         [Required]
         public int ReservationId { get; set; }
-        [Key]
-        [Column(Order = 2)]
+        //[Key]
+        //[Column(Order = 2)]
         [ForeignKey("Item")]
         [Required]
         public int ItemId { get; set; }
@@ -26,5 +26,7 @@ namespace ExcellentTaste.Domain.Models
         public bool Prepared { get; set; }
         [Required]
         public bool Delivered { get; set; }
+
+        
     }
 }

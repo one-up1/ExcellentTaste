@@ -12,9 +12,9 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 {
     public class SqlReservationItemData : IReservationItemData
     {
-        private readonly ReservationItemDbContext db;
+        private readonly ExcellentTasteContext db;
 
-        public SqlReservationItemData(ReservationItemDbContext db)
+        public SqlReservationItemData(ExcellentTasteContext db)
         {
             this.db = db;
         }

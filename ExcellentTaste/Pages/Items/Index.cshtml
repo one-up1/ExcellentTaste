@@ -1,0 +1,49 @@
+﻿@page
+@model ExcellentTaste.Pages.Items.IndexModel
+@{
+    var dummyItemDetail = Model.itemDetails.Items.FirstOrDefault();
+    <table Class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => dummyItemDetail.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummyItemDetail.CatagoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummyItemDetail.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummyItemDetail.BtwPercentage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => dummyItemDetail.Available)
+            </th>
+        </tr>
+        @foreach(var itemdetail in Model.itemDetails.Items)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => itemdetail.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => itemdetail.CatagoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => itemdetail.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => itemdetail.BtwPercentage)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => itemdetail.Available)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = itemdetail.Id })
+                    @Html.ActionLink("Details", "Details", new { id = itemdetail.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = itemdetail.Id })
+                </td>
+            </tr>
+        }
+    </table>
+}

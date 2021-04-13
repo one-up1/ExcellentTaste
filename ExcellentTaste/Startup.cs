@@ -49,39 +49,7 @@ namespace ExcellentTaste
             }
             else if(infrastructureOrigin == InfrastructureOrigin.Sql)
             {
-                services.AddDbContextPool<BtwTypeDbContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
-                });
-                services.AddDbContextPool<CatagoryDbContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
-                });
-                services.AddDbContextPool<FillingDbContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
-                });
-                services.AddDbContextPool<ItemDbContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
-                });
-                services.AddDbContextPool<ReservationDbContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
-                });
-                services.AddDbContextPool<ReservationItemDbContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
-                });
-                services.AddDbContextPool<StationDbContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
-                });
-                services.AddDbContextPool<TableDbContext>(options =>
-                {
-                    options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
-                });
-                services.AddDbContextPool<WaiterDbContext>(options =>
+                services.AddDbContextPool<ExcellentTasteContext>(options =>
                 {
                     options.UseSqlServer(Configuration.GetConnectionString("ExcellentTaste"));
                 });

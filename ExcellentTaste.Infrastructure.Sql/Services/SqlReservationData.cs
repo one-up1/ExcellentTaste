@@ -11,9 +11,9 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 {
     public class SqlReservationData : IReservationData
     {
-        private readonly ReservationDbContext db;
+        private readonly ExcellentTasteContext db;
 
-        public SqlReservationData(ReservationDbContext db)
+        public SqlReservationData(ExcellentTasteContext db)
         {
             this.db = db;
         }

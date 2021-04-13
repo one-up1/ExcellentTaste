@@ -10,9 +10,9 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 {
     public class SqlWaiterData : IWaiterData
     {
-        private readonly WaiterDbContext db;
+        private readonly ExcellentTasteContext db;
 
-        public SqlWaiterData(WaiterDbContext db)
+        public SqlWaiterData(ExcellentTasteContext db)
         {
             this.db = db;
         }

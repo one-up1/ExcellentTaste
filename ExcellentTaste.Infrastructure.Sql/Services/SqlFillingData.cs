@@ -10,9 +10,9 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 {
     public class SqlFillingData : IFillingData
     {
-        private readonly FillingDbContext db;
+        private readonly ExcellentTasteContext db;
         
-        public SqlFillingData(FillingDbContext db)
+        public SqlFillingData(ExcellentTasteContext db)
         {
             this.db = db;
         }

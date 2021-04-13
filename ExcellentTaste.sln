@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcellentTaste", "Excellent
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcellentTaste.Domain", "ExcellentTaste.Domain\ExcellentTaste.Domain.csproj", "{645CD3A5-9444-4699-B9A5-8DA785B73E2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcellentTaste.Infrastructure.InMemory", "ExcellentTaste.Infrastructure.InMemory\ExcellentTaste.Infrastructure.InMemory.csproj", "{725B1D12-21E0-4F58-B3F0-2307CDA03B55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcellentTaste.Infrastructure.InMemory", "ExcellentTaste.Infrastructure.InMemory\ExcellentTaste.Infrastructure.InMemory.csproj", "{725B1D12-21E0-4F58-B3F0-2307CDA03B55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcellentTaste.Infrastructure.Sql", "ExcellentTaste.Infrastructure.Sql\ExcellentTaste.Infrastructure.Sql.csproj", "{6ECEFF06-691A-4A1A-965E-B2A9D1254780}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExcellentTaste.Infrastructure.Sql", "ExcellentTaste.Infrastructure.Sql\ExcellentTaste.Infrastructure.Sql.csproj", "{6ECEFF06-691A-4A1A-965E-B2A9D1254780}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

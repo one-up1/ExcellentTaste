@@ -10,9 +10,9 @@ namespace ExcellentTaste.Infrastructure.Sql.Services
 {
     public class SqlCatagoryData : ICatagoryData
     {
-        private readonly CatagoryDbContext db;
+        private readonly ExcellentTasteContext db;
 
-        public SqlCatagoryData(CatagoryDbContext db)
+        public SqlCatagoryData(ExcellentTasteContext db)
         {
             this.db = db;
         }
